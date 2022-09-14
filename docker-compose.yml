@@ -1,0 +1,21 @@
+version: "3"
+services:
+  jupyter:
+      build: ./dockerfile/jupyter
+      ports:
+        - 10000:8888
+      volumes:
+        - ./where_container_in:/app      
+        
+
+  tensorboard:
+      build: ./dockerfile/tensorboard
+      ports:
+        - 6007:6006
+      volumes:
+        - ./where_container_in:/app
+
+
+
+volumes:
+    data: #確保你下次重新開容器時，原先編輯的資料還會被保留下來
